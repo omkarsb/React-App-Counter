@@ -9,9 +9,15 @@
   "dependencies": {
     "expo": "^32.0.0",
     "react": "16.5.0",
+    "react-digital-clock": "^0.1.2",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
     "react-redux": "^6.0.1",
     "redux": "^4.0.1"
+  },
+  "rnpm": {
+    "assets": [
+      "./assets/fonts/"
+    ]
   },
   "devDependencies": {
     "babel-preset-expo": "^5.0.0"
