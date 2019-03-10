@@ -1,43 +1,16 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import CounterApp from './src/CounterComponent/CounterApp'
-import {createStore} from 'redux'
-import {Provider} from 'react-redux'
+import { StyleSheet, Text, View } from 'react-native';
+import ToCounterApp from './src/CounterComponent/ToCounterApp'
+import HomeScreenApp from './src/HomeScreenComponent/HomeScreenApp'
+import CalendarApp from './src/CalendarComponent/CalendarApp'
+import {createBottomTabNavigator, createAppContainer} from 'react-navigation';
 
-const initialState = {
-  counter : 0
-}
+const MainNavigator = createBottomTabNavigator({
+  HomeScreen: {screen: HomeScreenApp},
+  Calendar: {screen: CalendarApp},
+  Counter: {screen: ToCounterApp},
+});
 
-const reducer = (state = initialState, action) => {
-  switch(action.type){
-    case 'INCREASE_COUNTER':
-    return{counter: state.counter + 1}
-    case 'DECREASE_COUNTER':
-    return{counter: state.counter - 1}
-  }
-  return state
-}
-
-const store = createStore(reducer)
-
-class App extends React.Component {
-
-  render() {
-    return (
-      <Provider store={store}>
-         <CounterApp />
-      </Provider>
-    );
-  }
-}
+const App = createAppContainer(MainNavigator);
 
 export default App
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

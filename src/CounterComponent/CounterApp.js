@@ -16,7 +16,6 @@ class CounterApp extends React.Component {
           <TouchableOpacity onPress={()=>this.props.decreaseCounter()}>
             <Text style={styles.textbox}>Decrease</Text>
           </TouchableOpacity>
-
         </View>
       </View>
     );
